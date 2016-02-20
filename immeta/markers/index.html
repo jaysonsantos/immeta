@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `markers` mod in crate `immeta`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, markers">
+
+    <title>immeta::markers - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>immeta</a></p><script>window.sidebarCurrent = {name: 'markers', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content mod">
+<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>immeta</a>::<wbr><a class='mod' href=''>markers</a></span><span class='out-of-band'><span id='render-detail'>
+            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                [<span class='inner'>&#x2212;</span>]
+            </a>
+        </span><a id='src-22' class='srclink' href='../../src/immeta/generic.rs.html#39-224' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>Contains metadata marker types.</p>
+
+<p>Metadata markers is a convenient way to access metadata loading functions for particular
+image types. They are also integrated with <code>GenericMetadata</code>, providing a convenient
+syntax to downcast a <code>GenericMetadata</code> value to a specific metadata type.</p>
+
+<p>Metadata marker types can be used directly, for example:
+```ignore
+use immeta::markers::Jpeg;</p>
+
+<p>let metadata = Jpeg::load_from_file(&quot;kitty.jpg&quot;).unwrap();
+```</p>
+
+<p>They can also be used together with <code>GenericMetadata</code>:
+```ignore
+use immeta::markers::Jpeg;</p>
+
+<p>let gmd = immeta::load_from_file(&quot;kitty.jpg&quot;).unwrap();
+let jpeg_metadata: Jpeg::Metadata = gmd.into::<Jpeg>().unwrap();
+```</p>
+
+<p>Alternatively, you can use <code>as_ref()</code>:
+<code>ignore let jpeg_metadata: &amp;Jpeg::Metadata = gmd.as_ref::&lt;Jpeg&gt;().unwrap();</code></p>
+
+<p><code>MetadataMarker::Metadata</code> associated type always points to concrete metadata type
+from one of <code>immeta::formats</code> submodule.</p>
+</div><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
+<table>
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.Gif.html'
+                               title='immeta::markers::Gif'>Gif</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.Jpeg.html'
+                               title='immeta::markers::Jpeg'>Jpeg</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.Png.html'
+                               title='immeta::markers::Png'>Png</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                
+                    <tr class=' module-item'>
+                        <td><a class='enum' href='enum.Webp.html'
+                               title='immeta::markers::Webp'>Webp</a></td>
+                        <td class='docblock short'>
+                             
+                        </td>
+                    </tr>
+                </table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
+<table>
+                    <tr class=' module-item'>
+                        <td><a class='trait' href='trait.MetadataMarker.html'
+                               title='immeta::markers::MetadataMarker'>MetadataMarker</a></td>
+                        <td class='docblock short'>
+                             <p>A marker trait for specific metadata type.</p>
+
+                        </td>
+                    </tr>
+                </table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "immeta";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

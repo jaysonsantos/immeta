@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Metadata","Represents metadata of a JPEG image."]]});
